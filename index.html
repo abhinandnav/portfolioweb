@@ -3676,7 +3676,14 @@
         li++;
         setTimeout(nextLoaderLine, 520);
       } else {
-        setTimeout(() => document.getElementById('enter-btn').classList.add('show'), 300);
+        setTimeout(() => {
+          document.getElementById('enter-btn').classList.add('show');
+          const ring = document.querySelector('.loader-ring');
+          if (ring) {
+            ring.style.transition = 'opacity 0.5s ease';
+            ring.style.opacity = '0';
+          }
+        }, 300);
       }
     }
     // Progress bar simulation
